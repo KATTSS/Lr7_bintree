@@ -28,7 +28,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_3;
     QTreeWidget *treeWidget;
     QHBoxLayout *horizontalLayout;
@@ -54,25 +54,28 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(50, 30, 711, 441));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(50, 30, 711, 441));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        treeWidget = new QTreeWidget(widget);
+        treeWidget = new QTreeWidget(layoutWidget);
+        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
+        __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
+        treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName("treeWidget");
 
         verticalLayout_3->addWidget(treeWidget);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        lineEdit = new QLineEdit(widget);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName("lineEdit");
 
         horizontalLayout->addWidget(lineEdit);
 
-        pushButton = new QPushButton(widget);
+        pushButton = new QPushButton(layoutWidget);
         pushButton->setObjectName("pushButton");
 
         horizontalLayout->addWidget(pushButton);
@@ -84,22 +87,22 @@ public:
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
-        pushButton_2 = new QPushButton(widget);
+        pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName("pushButton_2");
 
         verticalLayout_2->addWidget(pushButton_2);
 
-        pushButton_3 = new QPushButton(widget);
+        pushButton_3 = new QPushButton(layoutWidget);
         pushButton_3->setObjectName("pushButton_3");
 
         verticalLayout_2->addWidget(pushButton_3);
 
-        pushButton_4 = new QPushButton(widget);
+        pushButton_4 = new QPushButton(layoutWidget);
         pushButton_4->setObjectName("pushButton_4");
 
         verticalLayout_2->addWidget(pushButton_4);
 
-        pushButton_5 = new QPushButton(widget);
+        pushButton_5 = new QPushButton(layoutWidget);
         pushButton_5->setObjectName("pushButton_5");
 
         verticalLayout_2->addWidget(pushButton_5);
@@ -109,17 +112,17 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName("verticalLayout");
-        pushButton_6 = new QPushButton(widget);
+        pushButton_6 = new QPushButton(layoutWidget);
         pushButton_6->setObjectName("pushButton_6");
 
         verticalLayout->addWidget(pushButton_6);
 
-        pushButton_7 = new QPushButton(widget);
+        pushButton_7 = new QPushButton(layoutWidget);
         pushButton_7->setObjectName("pushButton_7");
 
         verticalLayout->addWidget(pushButton_7);
 
-        pushButton_8 = new QPushButton(widget);
+        pushButton_8 = new QPushButton(layoutWidget);
         pushButton_8->setObjectName("pushButton_8");
 
         verticalLayout->addWidget(pushButton_8);
@@ -152,8 +155,8 @@ public:
         pushButton_3->setText(QCoreApplication::translate("MainWindow", "find by key", nullptr));
         pushButton_4->setText(QCoreApplication::translate("MainWindow", "delete by key", nullptr));
         pushButton_5->setText(QCoreApplication::translate("MainWindow", "count all symbols", nullptr));
-        pushButton_6->setText(QCoreApplication::translate("MainWindow", "root first", nullptr));
-        pushButton_7->setText(QCoreApplication::translate("MainWindow", "sorted", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("MainWindow", "sorted", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "root first", nullptr));
         pushButton_8->setText(QCoreApplication::translate("MainWindow", "root last", nullptr));
     } // retranslateUi
 
