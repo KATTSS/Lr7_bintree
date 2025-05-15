@@ -24,6 +24,14 @@ BinTree::Node* BinTree::deleteNode(Node *x, size_t id) {
         x->right = deleteNode(x->right, id);
         if (x->right) x->right->parent = x;
     } else {
+        if (x->left == nullptr && x->right == nullptr) {
+            if (x->key == root->key) {
+                root = nullptr;
+                //qDebug () << root;
+            }
+            delete x;
+            return nullptr;
+        }
         Node* q = x->left;
         Node* r = x->right;
         Node* parent = x->parent;
@@ -74,7 +82,7 @@ QString BinTree::findByID(size_t id)
 void BinTree::deleteByID(size_t id)
 {
     root = deleteNode(root, id);
-    qDebug() << "new root after deletion : " << root->key;
+   // qDebug() << "new root after deletion : " << root->key;
 }
 
 size_t BinTree::findMinKey(Node *t) {
